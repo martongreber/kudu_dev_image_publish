@@ -61,7 +61,7 @@ FROM kudu-thirdparty AS kudu-thirdparty-all
 
 ARG BUILD_DIR="/apache/dev/git/kudu"
 WORKDIR ${BUILD_DIR}
-RUN --security=insecure thirdparty/build-if-necessary.sh all
+RUN --security=insecure echo 0 > /proc/sys/kernel/randomize_va_space && thirdparty/build-if-necessary.sh all
 
 # Entry point to bash.
 CMD ["/bin/bash"]

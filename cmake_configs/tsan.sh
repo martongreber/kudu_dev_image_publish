@@ -9,7 +9,6 @@ CC=${CLANG} CXX=${CLANG}++ ../../thirdparty/installed/common/bin/cmake \
   -DCMAKE_BUILD_TYPE=fastdebug \
   -DKUDU_LINK=dynamic\
   -DKUDU_USE_TSAN=1 \
-  -LE no_tsan \
   -GNinja \
   ../.. \
 && ninja )
