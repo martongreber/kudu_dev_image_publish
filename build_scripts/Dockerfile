@@ -40,6 +40,14 @@ RUN ./docker/bootstrap-dev-env.sh \
   && ./docker/bootstrap-java-env.sh \
   && ./docker/bootstrap-python-env.sh
 
+RUN apt-get install -y software-properties-common \
+    && add-apt-repository -y ppa:openjdk-r/ppa \
+    && apt-get update \
+    && apt-get install -y openjdk-17-jdk \
+    && update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java \
+    && update-alternatives --set javac /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
 ENV PATH /usr/lib/ccache:/usr/lib64/ccache/:$PATH
 
 CMD ["/bin/bash"]

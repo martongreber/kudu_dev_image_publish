@@ -48,7 +48,6 @@ build-and-publish() {
         cache_switches=""
       fi
       cache_switches+=" --cache-from=type=registry,ref=$username/$build_type:$build_arch"
-      cache_switches=""
       echo "$(timestamp) LOG: cache switches: $cache_switches"
 
       echo "$(timestamp) LOG: starting image build: $build_type:$build_arch"
